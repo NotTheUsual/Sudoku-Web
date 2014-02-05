@@ -22,7 +22,7 @@ body {
   box-sizing: border-box;
 }
 
-div.box, div.cell {
+.box, .cell {
   display: inline-block;
 }
 
@@ -37,6 +37,11 @@ div.box, div.cell {
   font-size: 18px;
 }
 
+.cell input:focus {
+  outline: none;
+  background-color: #fafafa;
+}
+
 .incorrect {
   background-color: #facece;
 }
@@ -49,28 +54,41 @@ div.box, div.cell {
   Grid Lines
  ****************************/
 
-div.box {
+.box {
   outline: 2px solid #767676;
 }
 
-div.cell input {
+.cell input {
   border: 1px solid #d3d3d3;
 }
 
-div.cell:first-child input {
+.cell:first-child input {
   border-left: none;
 }
 
-div.box:last-child div.cell:last-child input {
+.box:last-child .cell:last-child input {
   border-right: none;
 }
 
-div.cell-row:first-child input {
+.cell-row:first-child input {
   border-top: none;
 }
 
-div.row:last-of-type div.cell-row:last-child input {
+.row:last-of-type .cell-row:last-child input {
   border-bottom: none;
+}
+
+/****************************
+  Aside
+ ****************************/
+
+aside {
+  box-sizing: border-box;
+  font-size: 0.8em;
+  max-width: 390px;
+  margin: 2em auto 0;
+  padding: 0.5em 1em;
+  background-color: #fff;
 }
 
 /****************************
@@ -97,7 +115,7 @@ menu {
   text-decoration: none;
   padding: 0.7em 1em;
   border: none;
-  margin: 0 0.4em;
+  margin: 0 0.3em;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;

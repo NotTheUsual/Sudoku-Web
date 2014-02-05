@@ -1,24 +1,14 @@
 <form action="/" method="post">
-  <!-- one div for each box row -->
-  <% 3.times do |row| %>
-    <div class="row">
-      <!-- we want to create separate div elements for boxes to style them using CSS -->
-      <% 3.times do |box| %>
-        <div class="box">
-          <!-- each box will have nine cells -->
-          <% 3.times do |cell_row| %>
-            <div class="cell-row">
-              <% 3.times do |cell| %>
-                <%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= partial :grid %>
   <menu>
-    <button class="button">Check Solution</button>
-    <a href="/solution" class="button" title="Solution">Solution</a>
+    <button class="button" type="submit">Check Solution</button>
+    <a href="/solution" class="button" alt="Solution">Solution</a>
+    <input class="button" type="submit" name="save" value="Save Sudoku" />
+  </menu>
+  <menu>
+    <a href="/?new=easy" alt="New Sudoku" class="button">New Sudoku</a>
+    <a href="/?new=hard" alt="New Hard Sudoku" class="button">New Hard Sudoku</a>
+    <button class="button" type="reset">Reset</button>
+    <a href="/?update=reset" alt="Reset Sudoku" class="button">Really Reset</a>
   </menu>
 </form>

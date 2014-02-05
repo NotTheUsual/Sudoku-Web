@@ -11,6 +11,12 @@ helpers do
     end
   end
   
+  def make_read_only_if_provided puzzle_value
+    must_be_guessed = puzzle_value == ""
+    return 'readonly' if !must_be_guessed
+    ''
+  end
+  
   def cell_value(value)
     value.to_i == 0 ? '' : value
   end

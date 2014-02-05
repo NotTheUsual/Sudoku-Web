@@ -6,14 +6,17 @@
     <link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Life is too short for playing sudoku</h1>
+    <h1>Life's too short for playing sudoku</h1>
     <% if flash[:notice] %>
       <div id="flash">
-        <p><%= flash[:notice] %></p>
+        <p><%= flash[:notice] %><%= flash[:alert] %></p>
       </div>
     <% end %>
     <div id="sudoku">
       <%= yield %>
     </div>
+    <aside>
+      <p>You know how to do a sudoku, right? If you think you've solved the puzzle (or just want to know where you've gone wrong), click the 'Check Solution' button and any incorrect answers will be highlighted. If you just want the solution, there's a button for that, too.</p>
+    </aside>
   </body>
 </html>

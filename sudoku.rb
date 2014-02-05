@@ -20,7 +20,11 @@ end
 def puzzle(sudoku)
   # This method removes some digits form the puzzle to create a solution
   # This method is yours to implement
-  sudoku.map.with_index { |c,i| i % 5 == 0 ? c = "" : c }
+  if @difficulty == "hard"
+    sudoku.map.with_index { |c,i| i % 2 == 0 ? c = "" : c }
+  else
+    sudoku.map.with_index { |c,i| i % 5 == 0 ? c = "" : c }
+  end
 end
 
 def box_order_to_row_order(cells)
@@ -40,7 +44,7 @@ end
 def prepare_to_check_solution
   @check_solution = session[:check_solution]
   if @check_solution
-    flash[:notice] = "Incorrect values are highlighted in red"
+    flash.now[:notice] = "Incorrect values are highlighted in red"
   end
   session[:check_solution] = nil
 end
@@ -54,6 +58,9 @@ def generate_new_puzzle_if_necessary
 end
 
 get '/' do
+  session[:current_solution] = nil if params[:new]
+  session[:current_solution] = session[:puzzle] if params[:update]
+  @difficulty = params[:new]
   prepare_to_check_solution
   generate_new_puzzle_if_necessary
   @current_solution = session[:current_solution] # || session[:puzzle]
@@ -65,13 +72,22 @@ end
 post '/' do
   cells = box_order_to_row_order(params[:cell])
   session[:current_solution] = cells.map { |value| value.to_i }.join
-  session[:check_solution] = true
+  if params[:save]
+    flash[:notice] = "Solution saved"
+  else
+    session[:check_solution] = true
+  end
   redirect to('/')
 end
 
 get '/solution' do
-  @current_solution = session[:solution]
-  @solution = session[:solution]
-  @puzzle = session[:puzzle]
-  erb :solution
+  if !session[:solution]
+    flash[:notice] = "Start a puzzle before you view a solution"
+    redirect to('/')
+  else
+    @current_solution = session[:solution]
+    @solution = session[:solution]
+    @puzzle = session[:puzzle]
+    erb :solution
+  end
 end
