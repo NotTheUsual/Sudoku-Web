@@ -56,7 +56,7 @@ end
 get '/' do
   prepare_to_check_solution
   generate_new_puzzle_if_necessary
-  @current_solution = session[:current_solution] || session[:puzzle]
+  @current_solution = session[:current_solution] # || session[:puzzle]
   @solution = session[:solution]
   @puzzle = session[:puzzle]
   erb :index
@@ -71,5 +71,7 @@ end
 
 get '/solution' do
   @current_solution = session[:solution]
+  @solution = session[:solution]
+  @puzzle = session[:puzzle]
   erb :solution
 end

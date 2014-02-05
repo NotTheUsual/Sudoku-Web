@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sudoku Game</title>
+    <!-- link to the CSS stylesheet -->
+    <link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Life is too short for playing sudoku</h1>
+    <% if flash[:notice] %>
+      <div id="flash">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+    <div id="sudoku">
+      <%= yield %>
+    </div>
+  </body>
+</html>
