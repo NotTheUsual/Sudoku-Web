@@ -10,6 +10,18 @@ body {
   text-align: center;
 }
 
+#flash {
+  margin: 20px;
+}
+
+#flash p {
+  padding: 0.5em;
+  background-color: #facece;
+  width: 390px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 div.box, div.cell {
   display: inline-block;
 }
