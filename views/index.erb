@@ -1,14 +1,9 @@
 <form action="/" method="post">
   <%= partial :grid %>
   <menu>
-    <button class="button" type="submit">Check Solution</button>
-    <a href="/solution" class="button" alt="Solution">Solution</a>
-    <input class="button" type="submit" name="save" value="Save Sudoku" />
+    <button class="button" type="submit">Check Solution</button><a href="/solution" class="button" alt="Solution">View Solution</a><input class="button" type="submit" name="save" value="Save Solution" />
   </menu>
   <menu>
-    <a href="/?new=easy" alt="New Sudoku" class="button">New Sudoku</a>
-    <a href="/?new=hard" alt="New Hard Sudoku" class="button">New Hard Sudoku</a>
-    <button class="button" type="reset">Reset</button>
-    <a href="/?update=reset" alt="Reset Sudoku" class="button">Really Reset</a>
+    <a href="/?new=easy" alt="New Sudoku" class="button">New Sudoku</a><a href="/?new=hard" alt="New Hard Sudoku" class="button">New Hard Sudoku</a><button class="button" type="reset">Reset</button><a href="/?update=reset" alt="Reset Sudoku" class="button">Really Reset</a>
   </menu>
 </form>

@@ -45,6 +45,7 @@ def prepare_to_check_solution
   @check_solution = session[:check_solution]
   if @check_solution
     flash.now[:notice] = "Incorrect values are highlighted in red"
+    flash.now[:alert]  = true
   end
   session[:check_solution] = nil
 end

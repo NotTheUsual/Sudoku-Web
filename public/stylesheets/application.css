@@ -92,6 +92,18 @@ aside {
 }
 
 /****************************
+  Alerts
+ ****************************/
+
+#alert img {
+  max-width:390px;
+  position:absolute;
+  top: 136px;
+  left: 50%;
+  margin-left: -195px;
+}
+
+/****************************
   Button Group
  ****************************/
 
@@ -102,6 +114,29 @@ menu {
   padding: 0;
   font-size: 1rem;
   margin-top: 1em;
+}
+
+menu:first-of-type {
+  margin-top: 2em;
+}
+
+menu .button {
+  margin: 0;
+  border-right: 1px solid #3dc335;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+menu .button:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+menu .button:last-child {
+  border: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 /****************************
@@ -132,6 +167,10 @@ a.button {
   display: inline-block;
 }
 button {
+  position: relative;
+  top: -0.5px;
+}
+input[type='submit'] {
   position: relative;
   top: -0.5px;
 }
