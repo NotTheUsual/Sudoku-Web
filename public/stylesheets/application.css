@@ -46,6 +46,7 @@ h1 {
   height: 40px;
   text-align:center;
   font-size: 18px;
+  border-radius: 0;
 }
 
 .cell input:focus {
