@@ -22,16 +22,12 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
-  # This method removes some digits form the puzzle to create a solution
-  # This method is yours to implement
   if @difficulty == "hard"
-    indices = (0..80).to_a.sample(rand(55..65))
+    indices_to_remove = (0..80).to_a.sample(rand(55..65))
   else
-    indices = (0..80).to_a.sample(rand(45..55))
-  end
-  
-  
-  sudoku.map.with_index { |c,i| indices.include?(i) ? c = "" : c }
+    indices_to_remove = (0..80).to_a.sample(rand(45..55))
+  end 
+  sudoku.map.with_index { |c,i| indices_to_remove.include?(i) ? c = "" : c }
 end
 
 def box_order_to_row_order(cells)

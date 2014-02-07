@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     kgio (2.9.1)
+    newrelic_rpm (3.7.2.192)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
