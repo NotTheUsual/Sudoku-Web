@@ -45,7 +45,6 @@ def prepare_to_check_solution
   @check_solution = session[:check_solution]
   if @check_solution
     flash.now[:notice] = "Incorrect values are highlighted in red"
-    flash.now[:alert]  = true
   end
   session[:check_solution] = nil
 end
@@ -64,7 +63,7 @@ get '/' do
   @difficulty = params[:new]
   prepare_to_check_solution
   generate_new_puzzle_if_necessary
-  @current_solution = session[:current_solution] # || session[:puzzle]
+  @current_solution = session[:current_solution]
   @solution = session[:solution]
   @puzzle = session[:puzzle]
   erb :index
