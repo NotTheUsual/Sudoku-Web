@@ -25,10 +25,13 @@ def puzzle(sudoku)
   # This method removes some digits form the puzzle to create a solution
   # This method is yours to implement
   if @difficulty == "hard"
-    sudoku.map.with_index { |c,i| i % 2 == 0 ? c = "" : c }
+    indices = (0..80).to_a.sample(rand(55..65))
   else
-    sudoku.map.with_index { |c,i| i % 5 == 0 ? c = "" : c }
+    indices = (0..80).to_a.sample(rand(45..55))
   end
+  
+  
+  sudoku.map.with_index { |c,i| indices.include?(i) ? c = "" : c }
 end
 
 def box_order_to_row_order(cells)
